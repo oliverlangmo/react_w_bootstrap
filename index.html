@@ -92,10 +92,16 @@
    },
 
    render(){
+     var jumbotron;
+     if(this.state.currentPage == 'home'){
+       jumbotron = <Jumbotron heading={this.props.heading}  text = {this.props.text}/>
+     } else {
+       jumbotron = '';
+     }
      return (
        <div>
         <Navbar currentPage = {this.state.currentPage} brand={this.props.brand} change = {this.handleChange}/>
-        <Jumbotron heading={this.props.heading}  text = {this.props.text}/>
+        {jumbotron}
         <Page currentPage ={this.state.currentPage}/>
         </div>
      );
