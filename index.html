@@ -77,12 +77,17 @@
    }
  });
  var Theme = React.createClass({
+   getInitialState(){
+     return {
+       currentPage: 'home'
+     }
+   },
    render(){
      return (
        <div>
-        <Navbar currentPage = 'home' brand='ReactStrap'/>
+        <Navbar currentPage = {this.state.currentPage} brand='ReactStrap'/>
         <Jumbotron heading= 'Hello World!' text ='This is a bootstrap theme that uses React components'/>
-        <Page currentPage ='about'/>
+        <Page currentPage ={this.state.currentPage}/>
         </div>
      );
    }
